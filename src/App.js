@@ -5,6 +5,13 @@ import ListProduto from './ProdutoComponent/ListProduto';
 import CreateProduto from './ProdutoComponent/CreateProduto';
 import EditProduto from './ProdutoComponent/EditProduto';
 
+
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+
+
 function App() {
   return (
 
@@ -12,25 +19,21 @@ function App() {
       <h1>FEMA</h1>
 
       <BrowserRouter>
-      
         <div className="container">
-          <nav className="btn btn-warning navbar navbar-expand-lg navheader">
-            <div className="collapse navbar-collapse">
-              <ul className="navbar-nav mr-auto">
-                <li className="nav-item">
-                  <Link to={'/CreateProduto'} className="nav-link">
-                    Adicionar Produto
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link to={'/ListProduto'} className="nav-link">
-                    Listar Produtos
-                  </Link>
-                </li>
-              </ul>
-            </div>
-      
-          </nav> <br />
+
+   
+        <Navbar expand="lg" className="btn btn-warning">
+      <Container>
+        <Navbar.Brand href="http://www.fema.edu.br">FEMA</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link href='/ListProduto'>Listar</Nav.Link>
+            <Nav.Link href='/CreateProduto'>Novo</Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
 
           <Routes>
             <Route path="/ListProduto" element={<ListProduto />}/>
